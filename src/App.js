@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import {Button, WingBlank, WhiteSpace} from 'antd-mobile';
 import './App.css';
 
