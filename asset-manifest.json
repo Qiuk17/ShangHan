@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/ShangHan/static/css/main.3e3ba870.chunk.css",
-    "main.js": "/ShangHan/static/js/main.49889b3e.chunk.js",
-    "main.js.map": "/ShangHan/static/js/main.49889b3e.chunk.js.map",
-    "runtime~main.js": "/ShangHan/static/js/runtime~main.08cbead9.js",
-    "runtime~main.js.map": "/ShangHan/static/js/runtime~main.08cbead9.js.map",
-    "static/css/2.d2e72ad4.chunk.css": "/ShangHan/static/css/2.d2e72ad4.chunk.css",
-    "static/js/2.a65db44e.chunk.js": "/ShangHan/static/js/2.a65db44e.chunk.js",
-    "static/js/2.a65db44e.chunk.js.map": "/ShangHan/static/js/2.a65db44e.chunk.js.map",
-    "index.html": "/ShangHan/index.html",
-    "precache-manifest.d4eafe20211eb19711b86e521ae39a95.js": "/ShangHan/precache-manifest.d4eafe20211eb19711b86e521ae39a95.js",
-    "service-worker.js": "/ShangHan/service-worker.js",
-    "static/css/2.d2e72ad4.chunk.css.map": "/ShangHan/static/css/2.d2e72ad4.chunk.css.map",
-    "static/css/main.3e3ba870.chunk.css.map": "/ShangHan/static/css/main.3e3ba870.chunk.css.map"
+    "main.css": "/shanghan/static/css/main.3e3ba870.chunk.css",
+    "main.js": "/shanghan/static/js/main.4ca1f9de.chunk.js",
+    "main.js.map": "/shanghan/static/js/main.4ca1f9de.chunk.js.map",
+    "runtime~main.js": "/shanghan/static/js/runtime~main.fa107075.js",
+    "runtime~main.js.map": "/shanghan/static/js/runtime~main.fa107075.js.map",
+    "static/css/2.d2e72ad4.chunk.css": "/shanghan/static/css/2.d2e72ad4.chunk.css",
+    "static/js/2.a65db44e.chunk.js": "/shanghan/static/js/2.a65db44e.chunk.js",
+    "static/js/2.a65db44e.chunk.js.map": "/shanghan/static/js/2.a65db44e.chunk.js.map",
+    "index.html": "/shanghan/index.html",
+    "precache-manifest.8331e1afaaef87b943bb5f74ab3c5ac2.js": "/shanghan/precache-manifest.8331e1afaaef87b943bb5f74ab3c5ac2.js",
+    "service-worker.js": "/shanghan/service-worker.js",
+    "static/css/2.d2e72ad4.chunk.css.map": "/shanghan/static/css/2.d2e72ad4.chunk.css.map",
+    "static/css/main.3e3ba870.chunk.css.map": "/shanghan/static/css/main.3e3ba870.chunk.css.map"
   }
 }
