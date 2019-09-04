@@ -68,10 +68,20 @@ class YearInput extends React.Component {
 
 const ListItem = List.Item;
 class SolutionItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.render = this.render.bind(this);
+  }
+
   render() {
+    if (this.props.important) {
+      return (
+        <ListItem platform="android" onClick={()=>{}} extra="本条目更准确">{this.props.solutionName}</ListItem>
+      );
+    }
     return (
       <ListItem platform="android" onClick={()=>{}}>{this.props.solutionName}</ListItem>
-    )
+    );
   }
 }
 
