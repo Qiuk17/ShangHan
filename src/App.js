@@ -1,5 +1,5 @@
 import React from 'react';
-import {WingBlank, WhiteSpace, Flex, List, InputItem, NavBar, Toast} from 'antd-mobile';
+import {WingBlank, WhiteSpace, Flex, List, InputItem, NavBar, Toast, Result} from 'antd-mobile';
 import './App.css';
 import med from './med'
 class Header extends React.PureComponent {
@@ -41,13 +41,15 @@ class YearInput extends React.Component {
   onInputFirstChange(value) {
     let isError = !this.isValid(value);
     this.setState({hasErrorFirst: isError});
-    if (!isError && value) this.props.firstCallback(value);
+    //if (!isError && value)
+    this.props.firstCallback(value);
   }
 
   onInputSecondChange(value) {
     let isError = !this.isValid(value);
     this.setState({hasErrorSecond: isError});
-    if (!isError && value) this.props.secondCallback(value);
+    //if (!isError && value)
+    this.props.secondCallback(value);
   }
 
   onErrorClick() {
@@ -86,7 +88,16 @@ class SolutionItem extends React.Component {
 }
 
 class Solutions extends React.Component {
+  constructor(props) {
+    super(props);
+    this.render = this.render.bind(this);
+  }
   render() {
+    if (this.props.solutions.length === 0) {
+      return <Result imgUrl="https://gw.alipayobjects.com/zos/rmsportal/GIyMDJnuqmcqPLpHCSkj.svg" 
+                     title="无结果"
+                     message="没有找到对应的伤寒钤法，请尝试更换上方的输入"/>;
+    }
     return (
       <List renderHeader="搜索结果" renderFooter={"共 " + this.props.solutions.length.toString() + " 条结果"}>
         {this.props.solutions.map((solution) => {return <SolutionItem solutionName={solution} key={solution} />})}
@@ -125,7 +136,7 @@ class App extends React.Component {
 
   convertSB(str) {
     let i = parseInt(str);
-    return isNaN(i) ? this.SB.indexOf(str) : i - 1;
+    return isNaN(i) ? this.SB.indexOf(str) : (i.toString() === str ? i - 1 : -1);
   }
 
   updateSolutions(idx, str) {
