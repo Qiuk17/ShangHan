@@ -2,6 +2,8 @@ import React from 'react';
 import {WingBlank, WhiteSpace, Flex, List, InputItem, NavBar, Toast, Result} from 'antd-mobile';
 import './App.css';
 import med from './med'
+import importantMed from './important_med'
+
 class Header extends React.PureComponent {
   render() {
     return (
@@ -78,11 +80,11 @@ class SolutionItem extends React.Component {
   render() {
     if (this.props.important) {
       return (
-        <ListItem platform="android" onClick={()=>{}} extra="本条目更准确">{this.props.solutionName}</ListItem>
+        <ListItem platform="android" onClick={()=>{Toast.show(this.props.solutionName, Toast.SHORT, false)}} extra="本条目更准确">{this.props.solutionName}</ListItem>
       );
     }
     return (
-      <ListItem platform="android" onClick={()=>{}}>{this.props.solutionName}</ListItem>
+      <ListItem platform="android" onClick={()=>{Toast.show(this.props.solutionName, Toast.SHORT, false)}}>{this.props.solutionName}</ListItem>
     );
   }
 }
@@ -100,7 +102,7 @@ class Solutions extends React.Component {
     }
     return (
       <List renderHeader="搜索结果" renderFooter={"共 " + this.props.solutions.length.toString() + " 条结果"}>
-        {this.props.solutions.map((solution) => {return <SolutionItem solutionName={solution} key={solution} />})}
+        {this.props.solutions.map((solution) => {return <SolutionItem solutionName={solution.name} key={solution.name} important={solution.important}/>})}
       </List>
     );
   }
@@ -143,11 +145,29 @@ class App extends React.Component {
     let old = [this.state.firstInput, this.state.secondInput];
     old[idx] = this.convertSB(str);
     let a = [];
-    med.data.forEach((value) => {
+    importantMed.data.forEach((value) => {
       if (value.x === old[0] && value.y === old[1]) {
-        a.push(med.medicineInfo[value.z]);
+        for (var single of importantMed.medicineInfo[value.z].split('/')) {
+          a.push({name: single, important: true});
+        }
       }
     });
+    med.data.forEach((value) => {
+      if (value.x === old[0] && value.y === old[1]) {
+        for (var single of med.medicineInfo[value.z].split('/')) {
+          let flag = true;
+          // eslint-disable-next-line
+          for (let l in a) {
+            if (l.name === single) {
+              flag = false;
+              break;
+            }
+          }
+          if (flag) a.push({name: single, important: false});
+        }
+      }
+    });
+    console.log(JSON.stringify(a));
     this.setState({
       firstInput: old[0],
       secondInput: old[1],
