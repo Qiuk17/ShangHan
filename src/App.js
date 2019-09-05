@@ -157,7 +157,7 @@ class App extends React.Component {
         for (var single of med.medicineInfo[value.z].split('/')) {
           let flag = true;
           // eslint-disable-next-line
-          for (let l in a) {
+          for (let l of a) {
             if (l.name === single) {
               flag = false;
               break;
